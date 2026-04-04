@@ -180,9 +180,6 @@ resource "aws_kms_replica_key" "nc_dr_kms_replica" {
   deletion_window_in_days = 30
   tags                    = { Name = "${var.dr_stack_name}-kms-secondary" }
 
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 
