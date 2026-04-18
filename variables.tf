@@ -25,7 +25,7 @@ variable "dr_secondary_region" {
 variable "project_name" {
   description = "Optional legacy name; DR stack uses var.dr_stack_name for AWS resource names."
   type        = string
-  default     = "cloudpulse" #a
+  default     = "cloudpulse" #ad
 }
 
 variable "dr_stack_name" {
