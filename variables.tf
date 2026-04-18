@@ -20,7 +20,7 @@ variable "dr_secondary_region" {
   description = "Region for DR secondary VPC, S3 replica bucket, Lambda, etc. (provider aws.secondary)."
   type        = string
   default     = "eu-west-3"
-}#d
+}#dh
 
 variable "project_name" {
   description = "Optional legacy name; DR stack uses var.dr_stack_name for AWS resource names."
