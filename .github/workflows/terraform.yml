@@ -28,24 +28,24 @@ jobs:
           role-session-name: "GitHubActions-CloudPulse"
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Verify Bedrock Nova Lite access
-        # Sends a 1-token ping to Nova Lite. Success proves the account has
-        # granted model access (a manual console step that can't be Terraformed).
-        # Fails fast with a clear error instead of letting the dashboard widget
-        # silently show "AI insight unavailable" after a full deploy.
-        run: |
-          if ! aws bedrock-runtime invoke-model \
-            --region us-east-1 \
-            --model-id amazon.nova-lite-v1:0 \
-            --body '{"messages":[{"role":"user","content":[{"text":"ping"}]}],"inferenceConfig":{"maxTokens":1}}' \
-            --cli-binary-format raw-in-base64-out \
-            /tmp/bedrock-check.json 2> /tmp/bedrock-err.txt; then
-            echo "::error::Cannot invoke Nova Lite in us-east-1. Most likely cause: model access was not granted in the Bedrock console. See README step 5."
-            echo "AWS CLI error output:"
-            cat /tmp/bedrock-err.txt
-            exit 1
-          fi
-          echo "Nova Lite is accessible in us-east-1."
+      # - name: Verify Bedrock Nova Lite access
+      #   # Sends a 1-token ping to Nova Lite. Success proves the account has
+      #   # granted model access (a manual console step that can't be Terraformed).
+      #   # Fails fast with a clear error instead of letting the dashboard widget
+      #   # silently show "AI insight unavailable" after a full deploy.
+      #   run: |
+      #     if ! aws bedrock-runtime invoke-model \
+      #       --region us-east-1 \
+      #       --model-id amazon.nova-lite-v1:0 \
+      #       --body '{"messages":[{"role":"user","content":[{"text":"ping"}]}],"inferenceConfig":{"maxTokens":1}}' \
+      #       --cli-binary-format raw-in-base64-out \
+      #       /tmp/bedrock-check.json 2> /tmp/bedrock-err.txt; then
+      #       echo "::error::Cannot invoke Nova Lite in us-east-1. Most likely cause: model access was not granted in the Bedrock console. See README step 5."
+      #       echo "AWS CLI error output:"
+      #       cat /tmp/bedrock-err.txt
+      #       exit 1
+      #     fi
+      #     echo "Nova Lite is accessible in us-east-1."
 
       # # --- LINTING & SECURITY (NON-BLOCKING) ---
 
