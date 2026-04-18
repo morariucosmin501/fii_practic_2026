@@ -20,7 +20,7 @@ terraform {
     bucket  = "gaelatadeadoakedoeakd"
     key     = "terraform.tfstate"
     region  = "us-east-1"
-    encrypt = true
+    encrypt = true  #2
   }
 }
 
