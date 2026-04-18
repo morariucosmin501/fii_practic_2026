@@ -45,7 +45,7 @@ jobs:
       #       cat /tmp/bedrock-err.txt
       #       exit 1
       #     fi
-      #     echo "Nova Lite is accessible in us-east-1."
+      #     echo "Nova Lite is accessible in us-east-1." #
 
       # # --- LINTING & SECURITY (NON-BLOCKING) ---
 
