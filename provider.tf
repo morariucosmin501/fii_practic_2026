@@ -20,7 +20,7 @@ terraform {
     bucket  = "gaelatadeadoakedoeakd"
     key     = "terraform.tfstate"
     region  = "us-east-1"
-    encrypt = true  
+    encrypt = true
   }
 }
 
@@ -46,5 +46,5 @@ provider "aws" {
   alias  = "secondary"
   region = var.dr_secondary_region
 }
-
+#
 data "aws_caller_identity" "current" {}
