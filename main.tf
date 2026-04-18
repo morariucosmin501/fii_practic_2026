@@ -202,7 +202,7 @@ resource "aws_dynamodb_table" "cloudpulse" {
   attribute {
     name = "id"
     type = "S"
-  }
+  }#d
 
   tags = { Name = "${var.main_stack_name}-counter" }
 }
